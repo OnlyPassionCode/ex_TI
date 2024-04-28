@@ -3,6 +3,7 @@ session_start();
 
 require_once("../config.php");
 require_once("../models/UsersModel.php");
+require_once("../models/LocationsModel.php");
 
 
 $dsn = DB_DRIVER . ":host=" . DB_HOST . ";charset=" . DB_CHARSET . ";port=" . DB_PORT . ";dbname=". DB_NAME;
@@ -15,8 +16,9 @@ try {
     die($e->getMessage());
 }
 
-
-if(isset($_SESSION['connected'])){
+if(isset($_GET['json'])){
+    require("../controllers/ApiController.php");
+}else if(isset($_SESSION['connected'])){
     require("../controllers/PrivateController.php");
 }else{
     require("../controllers/PublicController.php");

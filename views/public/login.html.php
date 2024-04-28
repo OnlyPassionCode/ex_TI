@@ -39,9 +39,6 @@
                 <label for="password" class="form-label">Mot de passe</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-            <div>
-                <p>Vous êtes pas membre ? <a href="/?register">Enregistrez-vous</a></p>
-            </div>
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </form>
     </div>
