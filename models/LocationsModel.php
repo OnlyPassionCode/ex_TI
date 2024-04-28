@@ -36,7 +36,7 @@ function deleteLocationByID(PDO $db, int $id) : bool | string{
 function updateLocation(PDO $db, int $id, string $name, string $imgUrl, string $adresse, float $long, float $lat) : bool | string{
     try {
         $prepare = $db->prepare("UPDATE `locations` SET `name` = ?, `adresse` = ?, `img_url` = ?, `long` = ?, `lat` = ? WHERE `id` = ?");
-        $prepare->execute([$name, $imgUrl, $adresse, $long, $lat, $id]);
+        $prepare->execute([$name, $adresse, $imgUrl, $long, $lat, $id]);
         return true;
     } catch (Exception $e) {
         return $e->getMessage();
@@ -46,7 +46,7 @@ function updateLocation(PDO $db, int $id, string $name, string $imgUrl, string $
 function addLocation(PDO $db, string $name, string $imgUrl, string $adresse, float $long, float $lat) : int | string{
     try {
         $prepare = $db->prepare("INSERT INTO `locations`(`name`, `adresse`, `img_url`, `long`, `lat`) VALUE(?,?,?,?,?)");
-        $prepare->execute([$name, $imgUrl, $adresse, $long, $lat]);
+        $prepare->execute([$name, $adresse, $imgUrl, $long, $lat]);
         return (int) $db->lastInsertId();
     } catch (Exception $e) {
         return $e->getMessage();

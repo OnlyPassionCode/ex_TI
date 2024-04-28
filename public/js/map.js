@@ -38,7 +38,7 @@ function addAllToListe(locations){
         
         const li = document.createElement('li');
 
-        li.innerHTML = `${i.name} - ${i.adresse} | <a href="${i.img_url}">Photo</a>`;
+        li.innerHTML = `${i.name} - ${i.adresse} | <a href="${i.img_url}" target="_blank">Photo</a>`;
         li.dataset.id = i.id;
         
         ul.appendChild(li);
